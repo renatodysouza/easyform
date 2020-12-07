@@ -1,0 +1,9 @@
+<mat-form-field [style]="configInput.style"  [formGroup]="inputForm">
+  <mat-label>{{configInput.label}}</mat-label>
+  <input [type]="configInput.type"
+   matInput [placeholder]="configInput.placeholder"
+   [value]="configInput.value" 
+   [disabled]='configInput.disable'
+   [required]= 'configInput.required'
+   [formControlName]="configInput.alias" >
+</mat-form-field>
