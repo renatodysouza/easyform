@@ -1,4 +1,4 @@
-<mat-form-field [style]="configInput.style"  [formGroup]="inputForm">
+<mat-form-field *ngIf="configInput.type !== 'textarea' && configInput.type !== 'select'" [style]="configInput.style"  [formGroup]="inputForm">
   <mat-label>{{configInput.label}}</mat-label>
   <input [type]="configInput.type"
    matInput [placeholder]="configInput.placeholder"
@@ -6,4 +6,23 @@
    [disabled]='configInput.disable'
    [required]= 'configInput.required'
    [formControlName]="configInput.alias" >
+</mat-form-field>
+
+<mat-form-field *ngIf="configInput.type === 'textarea'" [style]="configInput.style"   [formGroup]="inputForm">
+  <mat-label>{{configInput.label}}</mat-label>
+  <textarea matInput  [value]="configInput.value" 
+    [disabled]='configInput.disable'
+    [required]= 'configInput.required'
+    [formControlName]="configInput.alias"
+    resizetofitcontent
+    cdkTextareaAutosize
+  ></textarea>
+</mat-form-field>
+
+<mat-form-field *ngIf="configInput.type === 'select'"  [style]="configInput.style"  [formGroup]="inputForm">
+  <mat-label>{{configInput.label}}</mat-label>
+  <select matNativeControl [required]='configInput.required'  [formControlName]="configInput.alias">
+    <option *ngIf="configInput.startEmpty" value="">   ----- </option>
+    <option *ngFor="let option of configInput.setOptions" [value]="option.id"> {{option.value}}</option>
+  </select>
 </mat-form-field>

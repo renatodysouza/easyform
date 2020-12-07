@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-group-fields',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./group-fields.component.css']
 })
 export class GroupFieldsComponent implements OnInit {
+  @Input() configGroup: any;
 
   constructor() { }
 

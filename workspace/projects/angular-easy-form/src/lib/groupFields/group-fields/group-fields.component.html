@@ -1,1 +1,5 @@
-<lib-input></lib-input>
+<div class="horizontal-group"  >
+    <lib-input class="input-dyn" *ngFor="let field of configGroup" [configInput]='field'></lib-input>
+</div>
+
+

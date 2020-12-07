@@ -1,17 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AngularEasyFormService } from '../../angular-easy-form.service';
+import { ConfigInput } from '../../interfaces/Config';
 
-
-interface ConfigInput {
-  type: string,
-  alias: string,
-  label: string,
-  disable: boolean,
-  placeholder: string,
-  value: any,
-  style: string
-  required: boolean
-}
 
 @Component({
   selector: 'lib-input',
@@ -19,27 +10,19 @@ interface ConfigInput {
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-  @Input() configInput: ConfigInput = {
-    type: '',
-    alias:'',
-    label: 'teste',
-    disable: false,
-    placeholder: '',
-    value: '',
-    style: '',
-    required: true
-  };
+  @Input() configInput: ConfigInput
 
   @Output() eventInput = new EventEmitter();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+   }
   inputForm!: FormGroup;
   
   ngOnInit(): void {
     this.initiFb();
-    if (this.configInput.required) {
+ /*    if (this.configInput.required) {
       this.inputForm.get('inputField')?.setValidators([Validators.required])
-    }
+    } */
     this.getFormChanges();
   }
 

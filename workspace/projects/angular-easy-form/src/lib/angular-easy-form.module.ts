@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [AngularEasyFormComponent, InputComponent, GroupFieldsComponent],
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     MatInputModule,
+    TextFieldModule,
     ReactiveFormsModule,
     MatFormFieldModule
     
