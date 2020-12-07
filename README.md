@@ -1,4 +1,4 @@
-# Angular-Ease-Forms
+# Angular-Easy-Forms
 
 Create forms in Angular easier and fast 
 
