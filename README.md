@@ -30,5 +30,7 @@ Permit create forms in Angular easier and fast.
     providers: [],
     bootstrap: [AppComponent]
     })
-export class AppModule { } ```
+export class AppModule { } 
+
+```
 
