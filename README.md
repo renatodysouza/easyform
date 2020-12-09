@@ -181,3 +181,8 @@ The event object return ken with alias of field and value. Contain to if the fie
     }
 
 ```
+
+### License
+
+
+This project is licensed under the terms of the [MIT license](/LICENSE).
