@@ -14,7 +14,8 @@ Permit create forms in Angular easier and fast.
 
 ## Usage
 
-` import { AngularEasyFormModule } from 'angular-easy-form'; 
+```ts
+ import { AngularEasyFormModule } from 'angular-easy-form'; 
     @NgModule({
     declarations: [
         AppComponent,
@@ -29,5 +30,5 @@ Permit create forms in Angular easier and fast.
     providers: [],
     bootstrap: [AppComponent]
     })
-export class AppModule { } `
+export class AppModule { } ```
 
