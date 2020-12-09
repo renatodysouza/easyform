@@ -152,7 +152,7 @@ eventForm(event: any) {
 
     ]
 
-    ![Screenshot](form.png)
+    ![Screenshot](form.PNG)
 
 
 ```
