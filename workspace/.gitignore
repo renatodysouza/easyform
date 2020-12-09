@@ -45,7 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-test
+
 /workspace/node_modules
 /workspace/projects/angular-easy-form/node_modules
 
