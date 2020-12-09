@@ -151,9 +151,7 @@ eventForm(event: any) {
       ],
 
     ]
-
-     ![alt tag](https://github.com/renatodysouza/easyform/blob/main/form.PNG)
-
-
+   
 
 ```
+![alt tag](https://github.com/renatodysouza/easyform/blob/main/form.PNG)
