@@ -1,11 +1,10 @@
 # Angular-Easy-Forms
 
-  
+*warning - this version is release, not use it in production
 
 Permit create forms in Angular easier and fast.
 
-  
-  
+
 
 ## Get Started
 
