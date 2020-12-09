@@ -154,4 +154,23 @@ eventForm(event: any) {
    
 
 ```
+
+## The form automatically rendering
+
 ![alt tag](https://github.com/renatodysouza/easyform/blob/main/form.PNG)
+
+
+### Events
+
+The event object return ken with alias of field and value. Contain to if the field is valid and formGroup instance
+
+
+ ```javascript
+     f1: {
+        formGroup: FormGroup,
+        isValid: true,
+        value: {f1: "yourValue"}
+
+    }
+
+```
