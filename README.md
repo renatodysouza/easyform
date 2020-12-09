@@ -11,9 +11,7 @@ Permit create forms in Angular easier and fast.
 
   
 
-### Compatibility
-
-  
+ 
 
 ### NPM
 
@@ -100,9 +98,16 @@ eventForm(event: any) {
 
 | Parameter   |  Description  |  Type  |  Example | 
 | ------------------- | ------------------- | ------------------- | ------------------- |
-|  title |  Title of main form | string  | { title: 'my title' } |
 |  style |  Style of main form | string | { style: 'background-color: red;' } |
 |  fields |  Fields define the fields and parameters | array |  see above complete example |
+|  type |  Type of the field | string |  text, email, date, number, checkbox , textarea, searchInput |
+|  alias |  Unique identificator of the field | string |  --- |
+|  label |  Label of field | string |  If not exist lable only show input field |
+|  disable |  Disable of input | boolean |  if true the input became disabled |
+|  placeholder |  Show text in imput | string | only util when input permit placeholder |
+|  value |  Set default value in field | string |  ---- |
+|  required |  Set if the field is requided | boolean  |  buy default is false|
+
 
 
 
