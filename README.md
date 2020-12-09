@@ -106,8 +106,13 @@ eventForm(event: any) {
 
 
 
- ```javascript
+
+ ### Example of configForm
+
  
+
+ ```javascript
+
  configForm = {
     style: 'background-color: red;',
     fields: [
@@ -156,6 +161,8 @@ eventForm(event: any) {
 ```
 
 ## The form automatically rendering
+
+
 
 ![alt tag](https://github.com/renatodysouza/easyform/blob/main/form.PNG)
 
