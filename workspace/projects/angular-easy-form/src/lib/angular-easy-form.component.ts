@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { AngularEasyFormService } from './angular-easy-form.service';
+import { Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Config } from './interfaces/Config';
 
 @Component({
   selector: 'lib-angular-easy-form',
@@ -7,61 +8,22 @@ import { AngularEasyFormService } from './angular-easy-form.service';
   styles: ['./angular-easy-form.component.css']
 })
 export class AngularEasyFormComponent implements OnInit {
-  @Input() masterConfig: any;
-  mockConfig = {
-    style: 'background-color: red;',
-    fields: [
-      [
-        { type: 'text', alias: 'f1', label: 'teste', disable: false, placeholder: '',
-          value: '', style: '', required: false
-        },
-        { type: 'number', alias: 'f2', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-        { type: 'date', alias: 'f3', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-      ],
+  @Input() masterConfig: Config;
+  @Output() eventsForm = new EventEmitter();
+  allFields: any = {};
 
-      [
-        { type: 'select', alias: 'objs',
-         setOptions: [ {id: 1, value: 'home'}, {id: 2, value: 'ball'}],
-         label: 'Can select ', disable: false, startEmpty: true,
-          value: '', style: '', required: true
-        },
-        { type: 'number', alias: 'f5', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-        { type: 'date', alias: 'f6', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-      ],
+  constructor() { }
 
-      [
-        { type: 'textarea', alias: 'note', label: 'teste', disable: false, placeholder: '',
-        value: '', style: 'width:570px;', required: false
-        },
-        
-      ],
-
-    ]
-    
-    
-    
-    
-    
-  }
-  constructor(private easyFormService: AngularEasyFormService) { }
-
-  ngOnInit(): void {
-    // mock
-
-
+  ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-
     // this.easyFormService.setConfig(changes.masterConfig.currentValue());
+  }
+
+  eventGroupFields(event: any) {
+    this.allFields = Object.assign(this.allFields, event);
+    this.eventsForm.emit(this.allFields)
   }
 
 }

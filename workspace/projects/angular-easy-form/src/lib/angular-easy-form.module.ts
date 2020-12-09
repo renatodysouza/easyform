@@ -9,9 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TextFieldModule} from '@angular/cdk/text-field';
-
+import { InputsearchComponent } from './inputsearch/inputsearch.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
-  declarations: [AngularEasyFormComponent, InputComponent, GroupFieldsComponent],
+  declarations: [
+    AngularEasyFormComponent,
+     InputComponent, 
+     GroupFieldsComponent,
+     InputsearchComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -19,9 +25,13 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     MatInputModule,
     TextFieldModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatSelectModule,
     MatFormFieldModule
     
   ],
   exports: [AngularEasyFormComponent]
 })
 export class AngularEasyFormModule { }
+

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AngularEasyFormService } from '../../angular-easy-form.service';
-import { ConfigInput } from '../../interfaces/Config';
+import { FormBuilder, FormGroup} from '@angular/forms';
+import { ConfigInput } from '../../interfaces/ConfigInput';
 
 
 @Component({
@@ -20,9 +19,6 @@ export class InputComponent implements OnInit {
   
   ngOnInit(): void {
     this.initiFb();
- /*    if (this.configInput.required) {
-      this.inputForm.get('inputField')?.setValidators([Validators.required])
-    } */
     this.getFormChanges();
   }
 
@@ -34,8 +30,12 @@ export class InputComponent implements OnInit {
 
   getFormChanges() {
     this.inputForm.valueChanges.subscribe(() => {
-      console.log(this.inputForm);
+      this.eventInput.emit(this.inputForm);
     });
+  }
+
+  eventValue(event: any) {
+    this.eventInput.emit({alias: this.configInput.alias, type: 'searchForm', value: event});
   }
 
 }

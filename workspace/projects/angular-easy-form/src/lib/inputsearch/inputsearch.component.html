@@ -1,0 +1,19 @@
+<div class='group-input'>
+    <label *ngIf="label" >{{label}}</label>
+    <mat-form-field  class="example-full-width form-group" [style.background-color]="myControl.status === 'INVALID'  && validate ? 'rgb(232, 154, 154)' : ''">
+            <input class="multipleSelect" type="text" [matAutocomplete]="auto" required
+            (keyup)="onKey($event)"
+            aria-label="Number"
+            matInput
+            #trigger="matAutocompleteTrigger"
+            (click)='eventClick($event,trigger)'
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete"  showPanel="true" #selectInp
+            >
+              <mat-option  *ngFor="let item of allComplete" style="display: block" (click)='selected(item[itemValue], label); $event.stopPropagation()' [value]="item[itemResult]">
+                {{item[itemResult]}}
+              </mat-option>
+            </mat-autocomplete>
+      </mat-form-field>
+</div>
