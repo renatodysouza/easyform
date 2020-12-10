@@ -8,23 +8,10 @@
     "form",
     "formgroup"
   ],
-
   "license": "MIT",
   "author": {
     "name": "Renato-souza",
     "email": "renatoserra@gmail.com"
-  },
-  "ngPackage": {
-    "$schema": "./node_modules/ng-packagr/package.schema.json",
-    "lib": {
-      "entryFile": "src/public-api.ts"
-    },
-    "assets": [
-      "./assets"
-    ],
-    "whitelistedNonPeerDependencies": [
-      "."
-    ]
   },
   "copyright": "2020 Renato Souza",
   "repository": {
@@ -46,5 +33,13 @@
     "@angular/router": "~11.0.1",
     "@schematics/angular": "^11.0.3",
     "tslib": "^2.0.0"
-  }
+  },
+  "main": "bundles/angular-easy-form.umd.js",
+  "module": "fesm2015/angular-easy-form.js",
+  "es2015": "fesm2015/angular-easy-form.js",
+  "esm2015": "esm2015/angular-easy-form.js",
+  "fesm2015": "fesm2015/angular-easy-form.js",
+  "typings": "angular-easy-form.d.ts",
+  "metadata": "angular-easy-form.metadata.json",
+  "sideEffects": false
 }
