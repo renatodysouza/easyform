@@ -1,15 +1,14 @@
 {
   "name": "my-workspace",
-  "version": "0.0.0",
-
+  "version": "0.0.2",
   "scripts": {
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng-packagr -p projects/angular-easy-form/package.json",
     "test": "ng test",
     "lint": "ng lint"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.0.3",

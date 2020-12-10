@@ -186,6 +186,31 @@ The event object return ken with alias of field and value. Contain to if the fie
 
 ```
 
+## Compatible with Angular Ivy
+
+  has not been processed correctly by ngcc, or is not compatible with Angular Ivy
+
+
+  Resolve this:
+
+  ```json
+  package.json
+    content_copy
+    {
+      "scripts": {
+        "postinstall": "ngcc"
+      }
+    }
+
+```
+
+```node
+
+  npm run postinstall
+
+
+ ```
+
 ### License
 
 
