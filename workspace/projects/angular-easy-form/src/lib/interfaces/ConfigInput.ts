@@ -18,5 +18,6 @@ export interface ConfigInput {
   validated?: boolean;
   miniLength?: number,
   maxLength?: number,
+  pattern?: any
 
 }
