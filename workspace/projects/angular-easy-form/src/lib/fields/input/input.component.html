@@ -11,7 +11,7 @@
    [value]="configInput.value" 
    [minlength]='configInput.miniLength'
    [maxlength]='configInput.maxLength'
-
+   [pattern] = 'configInput.pattern'
    [disabled]='configInput.disable'
    [required]= 'configInput.required'
    [formControlName]="configInput.alias" >
@@ -23,6 +23,9 @@
     [disabled]='configInput.disable'
     [required]= 'configInput.required'
     [formControlName]="configInput.alias"
+    [pattern] = 'configInput.pattern'
+    [minlength]='configInput.miniLength'
+    [maxlength]='configInput.maxLength'
     resizetofitcontent
     cdkTextareaAutosize
   ></textarea>
