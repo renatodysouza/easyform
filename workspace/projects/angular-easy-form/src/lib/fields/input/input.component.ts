@@ -24,7 +24,7 @@ export class InputComponent implements OnInit {
 
   initiFb() {
     const setControlName: any = {}
-    setControlName[this.configInput.alias.toString()] = ['']
+    setControlName[this.configInput.alias.toString()] = [this.configInput.value ||'']
     this.inputForm = this.fb.group(setControlName);
   }
 
