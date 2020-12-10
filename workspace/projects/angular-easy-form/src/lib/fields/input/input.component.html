@@ -9,6 +9,9 @@
   <input [type]="configInput.type"
    matInput [placeholder]="configInput.placeholder"
    [value]="configInput.value" 
+   [minlength]='configInput.miniLength'
+   [maxlength]='configInput.maxLength'
+
    [disabled]='configInput.disable'
    [required]= 'configInput.required'
    [formControlName]="configInput.alias" >
