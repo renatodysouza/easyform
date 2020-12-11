@@ -94,7 +94,6 @@ eventForm(event: any) {
 
 
 
-
 | Parameter   |  Description  |  Type  |  Example | 
 | ------------------- | ------------------- | ------------------- | ------------------- |
 |  style |  Style of main form | string | { style: 'background-color: red;' } |
@@ -106,14 +105,15 @@ eventForm(event: any) {
 |  placeholder |  Show text in imput | string | only util when input permit placeholder |
 |  value |  Set default value in field | string |  ---- |
 |  required |  Set if the field is requided | boolean  |  buy default is false|
-
-
+|  maxLength |  Set size of field  | number  |   maxLength: 5 |
+|  miniLength |  Set size of field  | number  |   miniLength: 5 |
+|  pattern |  Set regex in field  | any  |   pattern:'[a-zA-Z ]*' |
 
 
 
  ### Example of configForm
 
- 
+  * Type and alias are mandatory
 
  ```javascript
 
@@ -185,6 +185,31 @@ The event object return ken with alias of field and value. Contain to if the fie
     }
 
 ```
+
+## Compatible with Angular Ivy
+
+  has not been processed correctly by ngcc, or is not compatible with Angular Ivy
+
+
+  Resolve this:
+
+  ```json
+  package.json
+    content_copy
+    {
+      "scripts": {
+        "postinstall": "ngcc"
+      }
+    }
+
+```
+
+```node
+
+  npm run postinstall
+
+
+ ```
 
 ### License
 
