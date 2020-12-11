@@ -21,7 +21,7 @@ GroupFieldsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'lib-group-fields',
                 template: "<div class=\"horizontal-group\"  >\n    <lib-input class=\"input-dyn\" *ngFor=\"let field of configGroup\" [configInput]='field' (eventInput)=\"eventFields($event)\"></lib-input>\n</div>\n\n\n",
-                styles: [".horizontal-group{display:flex;flex-direction:column;flex-direction:row}.input-dyn{margin-left:1%}"]
+                styles: [".horizontal-group{display:flex;flex-direction:column;flex-direction:row}.input-dyn{margin-left:1%;width:100%}"]
             },] }
 ];
 GroupFieldsComponent.ctorParameters = () => [];

@@ -1,6 +1,6 @@
 <div class='group-input'>
     <label *ngIf="label" >{{label}}</label>
-    <mat-form-field  class="example-full-width form-group" [style.background-color]="myControl.status === 'INVALID'  && validate ? 'rgb(232, 154, 154)' : ''">
+    <mat-form-field  class="form-group" [style.background-color]="myControl.status === 'INVALID'  && validate ? 'rgb(232, 154, 154)' : ''">
             <input class="multipleSelect" type="text" [matAutocomplete]="auto" required
             (keyup)="onKey($event)"
             aria-label="Number"

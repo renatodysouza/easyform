@@ -41,7 +41,7 @@
 
 <div class="check-default" [style]="configInput.style" *ngIf="configInput.type === 'checkbox'" [formGroup]="inputForm">
   <input type="checkbox"  [checked]="configInput.checked"  [formControlName]="configInput.alias">
-  <label  class="check-label" for="scales">Scales</label>
+  <label  class="check-label" for="scales">{{configInput.label}}</label>
 </div>
 
 <div class="check-form" *ngIf="configInput.type === 'searchInput'"  [style]="configInput.style">
