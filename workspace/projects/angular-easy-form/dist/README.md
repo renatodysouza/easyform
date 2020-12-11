@@ -94,7 +94,6 @@ eventForm(event: any) {
 
 
 
-
 | Parameter   |  Description  |  Type  |  Example | 
 | ------------------- | ------------------- | ------------------- | ------------------- |
 |  style |  Style of main form | string | { style: 'background-color: red;' } |
@@ -106,14 +105,15 @@ eventForm(event: any) {
 |  placeholder |  Show text in imput | string | only util when input permit placeholder |
 |  value |  Set default value in field | string |  ---- |
 |  required |  Set if the field is requided | boolean  |  buy default is false|
-
-
+|  maxLength |  Set size of field  | number  |   maxLength: 5 |
+|  miniLength |  Set size of field  | number  |   miniLength: 5 |
+|  pattern |  Set regex in field  | any  |   pattern:'[a-zA-Z ]*' |
 
 
 
  ### Example of configForm
 
- 
+  * Type and alias are mandatory
 
  ```javascript
 
