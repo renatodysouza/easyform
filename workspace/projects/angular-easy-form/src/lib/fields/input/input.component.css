@@ -7,3 +7,7 @@
 .check-label {
     margin-left: 4%;
 }
+
+.mat-form-field {
+    width: 100%;
+}
