@@ -75,7 +75,7 @@ In your component's template file "app.component.html" you have add tag lib-angu
 
 [masterConfig]='configForm'
 
-(eventsForm)="eventForm($event)"></lib-angular-easy-form>"
+(eventsForm)="eventForm($event)"></lib-angular-easy-form>
 
 ```
 
