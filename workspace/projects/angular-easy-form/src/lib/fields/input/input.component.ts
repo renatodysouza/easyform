@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfigInput } from '../../interfaces/ConfigInput';
 
 
@@ -14,9 +14,9 @@ export class InputComponent implements OnInit {
   @Output() eventInput = new EventEmitter();
 
   constructor(private fb: FormBuilder) {
-   }
+  }
   inputForm!: FormGroup;
-  
+
   ngOnInit(): void {
     this.initiFb();
     this.getFormChanges();
@@ -24,8 +24,9 @@ export class InputComponent implements OnInit {
 
   initiFb() {
     const setControlName: any = {}
-    setControlName[this.configInput.alias.toString()] = [this.configInput.value ||'']
+    setControlName[this.configInput.alias.toString()] = [this.configInput.value || '']
     this.inputForm = this.fb.group(setControlName);
+    this.eventInput.emit(this.inputForm);
   }
 
   getFormChanges() {
@@ -35,7 +36,7 @@ export class InputComponent implements OnInit {
   }
 
   eventValue(event: any) {
-    this.eventInput.emit({alias: this.configInput.alias, type: 'searchForm', value: event});
+    this.eventInput.emit({ alias: this.configInput.alias, type: 'searchForm', value: event });
   }
 
 }

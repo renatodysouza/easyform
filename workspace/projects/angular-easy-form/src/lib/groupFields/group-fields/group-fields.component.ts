@@ -20,7 +20,7 @@ export class GroupFieldsComponent implements OnInit {
       this.fieldsGroup[event.alias] = {value: event.value, isValid: event.valid };
       this.eventGroupInput.emit(this.fieldsGroup);
     } else {
-      this.fieldsGroup[Object.keys(event.value)[0] || Object.keys(event)[0]] = {value: event.value, isValid: event.valid, formGroup: event};
+      this.fieldsGroup[Object.keys(event.value)[0] || Object.keys(event)[0]] = [ event.value, event.valid, event ]
       this.eventGroupInput.emit(this.fieldsGroup)
     }
   }

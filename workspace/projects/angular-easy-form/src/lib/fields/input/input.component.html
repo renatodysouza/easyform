@@ -26,6 +26,7 @@
     [pattern] = 'configInput.pattern'
     [minlength]='configInput.miniLength'
     [maxlength]='configInput.maxLength'
+    [disabled]='configInput.disable'
     resizetofitcontent
     cdkTextareaAutosize
   ></textarea>
@@ -40,7 +41,7 @@
 </mat-form-field>
 
 <div class="check-default" [style]="configInput.style" *ngIf="configInput.type === 'checkbox'" [formGroup]="inputForm">
-  <input type="checkbox"  [checked]="configInput.checked"  [formControlName]="configInput.alias">
+  <input type="checkbox"  [checked]="configInput.checked"  [disabled]='configInput.disable'  [formControlName]="configInput.alias">
   <label  class="check-label" for="scales">{{configInput.label}}</label>
 </div>
 

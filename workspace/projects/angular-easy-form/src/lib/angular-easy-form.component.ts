@@ -11,6 +11,8 @@ export class AngularEasyFormComponent implements OnInit {
   @Input() masterConfig: Config;
   @Output() eventsForm = new EventEmitter();
   allFields: any = {};
+  valueEvent: any = {};
+  otherEvents: any = {};
 
   constructor() { }
 
@@ -22,8 +24,12 @@ export class AngularEasyFormComponent implements OnInit {
   }
 
   eventGroupFields(event: any) {
+    if (!event) { return }
     this.allFields = Object.assign(this.allFields, event);
-    this.eventsForm.emit(this.allFields)
+    this.valueEvent = {
+      otherEvents: this.allFields,
+      values: Object.assign(this.otherEvents, event[Object.keys(event)[0].toString()][0])
+    }
+    this.eventsForm.emit(this.valueEvent)
   }
-
 }
