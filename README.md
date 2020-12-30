@@ -72,10 +72,8 @@ In your component's template file "app.component.html" you have add tag lib-angu
   ```html
 
 <lib-angular-easy-form
-
-[masterConfig]='configForm'
-
-(eventsForm)="eventForm($event)"></lib-angular-easy-form>
+(eventsForm)="eventForm($event)">
+</lib-angular-easy-form>
 
 ```
 
@@ -115,54 +113,68 @@ eventForm(event: any) {
 
   * Type and alias are mandatory
 
- ```javascript
+ ```typescript
 
- configForm = {
-    style: 'background-color: red;',
-    fields: [
-      [
-        { type: 'text', alias: 'f1', label: 'Field I', disable: false, placeholder: '',
-          value: '', style: '', required: true
-        },
-        { type: 'number', alias: 'f2', label: 'Field II', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-        { type: 'date', alias: 'f3', label: 'Field III', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-      ],
+   // In your component add AfterViewInit
+      export class YourComponent implements OnInit, AfterViewInit {
+      @ViewChild('formEasy', { static: false }) formEasy: any;
 
-      [
-        { type: 'select', alias: 'f4',
-         setOptions: [ {id: 1, value: 'home'}, {id: 2, value: 'ball'}],
-         label: 'Can select ', disable: false, startEmpty: true,
-          value: '', style: '', required: true
-        },
-        { type: 'number', alias: 'f5', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-        { type: 'date', alias: 'f6', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
-      ],
+        ngAfterViewInit() {
+    const formCreator = this.formEasy.formOptions();
+    formCreator.matriz = [3, 3, 3];
 
-      [
-        { type: 'textarea', alias: 'f7', label: 'teste', disable: false, placeholder: '',
-        value: '', style: '', required: false
-        },
+    formCreator.field().text({
+      type: 'text', alias: 'f1', label: 'Teste 1', disable: false, placeholder: 'oi',
+      value: '', style: '', required: true
+    });
 
-        { type: 'checkbox', alias: 'f8', label: 'teste', checked: false,
-          style: '', required: false
-        },
-       { type: 'searchInput', alias: 'f9', label: '', dataOptions:[{id:"cat", value:"cat"}, {id:"dog", value:"dog"}], validate: false, 
-        valuePreselected: '', valueData: 'id', showedData: 'value', style: ''}, 
-        
-      ],
+    formCreator.field().text({
+      type: 'text', alias: 'f2', label: 'Teste 2', disable: false, placeholder: 'sou',
+      value: '', style: '', required: true
+    });
 
-    ]
+    formCreator.field().text({
+      type: 'text', alias: 'f3', label: 'Teste 3', disable: false, placeholder: 'eu',
+      value: '', style: '', required: true
+    });
 
- }   
-   
+    formCreator.field().select({
+      type: 'select', alias: 'f4',
+      setOptions: [{ id: 1, value: 'home' }, { id: 2, value: 'ball' }],
+      label: 'Teste 4', disable: false, startEmpty: true,
+      value: '', style: '', required: true
+    });
+
+    formCreator.field().number({
+      type: 'number', alias: 'f5', label: 'teste', disable: false, placeholder: '',
+      value: '', style: '', required: false
+    });
+
+    formCreator.field().date({
+      type: 'date', alias: 'f6', label: 'teste', disable: false, placeholder: '',
+      value: '', style: '', required: false
+    });
+
+    formCreator.field().textArea({
+      type: 'textarea', alias: 'f7', label: 'teste3', disable: false, placeholder: '',
+      value: '', style: '', required: false
+    });
+
+    formCreator.field().checkbox({
+      type: 'checkbox', alias: 'f8', label: 'teste', checked: false,
+      style: 'margin-left:8px;', required: false
+    });
+
+    formCreator.field().checkbox({
+      type: 'searchInput', alias: 'f9', label: '',
+      dataOptions: [{ id: '01', value: 'cat' }, { id: 'dog', value: 'dog' }], validate: false,
+      valuePreselected: 'cat', valueData: 'id', showedData: 'value', style: ''
+    });
+
+    this.formEasy.populateGroup(formCreator.build());
+    this.cdRef.detectChanges();
+  }
+  
 
 ```
 
