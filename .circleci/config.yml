@@ -6,9 +6,7 @@ jobs:
       tag: '13.14'
     steps:
       - checkout
-      - cd ./workspace && node/install-packages
-      - run:
-          command: pwd
+      - pwd
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
