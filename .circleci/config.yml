@@ -8,7 +8,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     working_directory: ~/workspace     
     steps:
-      - run: npm install
+      - run: ls
      
 workflows:
   version: 2
