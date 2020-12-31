@@ -3,6 +3,6 @@ jobs:
   dependencies:
     docker:
        -image: circleci/node@4.1.0
-  steps:
-    - checkout
-    - run: ls   
+    steps:
+      - checkout
+      - run: ls   
