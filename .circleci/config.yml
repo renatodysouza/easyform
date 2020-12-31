@@ -1,7 +1,9 @@
-version: 2.1
 jobs:
   test:
-    working_directory: ~/workspace     
+    working_directory: ~/workspace   
+    executor:
+      name: node/default
+      tag: '13.14'
     steps:
       - checkout
       - node/install-packages
@@ -9,6 +11,7 @@ jobs:
           command: npm run test
 orbs:
   node: circleci/node@x.y
+version: 2.1
 workflows:
   test_my_app:
     jobs:
