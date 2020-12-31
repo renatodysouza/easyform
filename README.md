@@ -1,5 +1,6 @@
-# Template:
-[![<ORG_NAME>](https://circleci.com/<VCS>/renatodysouza/easyform.svg?style=svg)](<LINK>)
+
+
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 # Angular-Easy-Forms
 
