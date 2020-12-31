@@ -46,7 +46,7 @@ testem.log
 Thumbs.db
 
 
-/workspace/node_modules
-/workspace/projects/angular-easy-form/node_modules
+# /workspace/node_modules
+# /workspace/projects/angular-easy-form/node_modules
 
 node_modules/
