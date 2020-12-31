@@ -9,6 +9,7 @@ jobs:
     steps:
       - run: 
         command: cd ./workspace && ng test
+        name: Run Tests
 workflows:
   version: 2
   build_and_test:
