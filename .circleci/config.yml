@@ -7,8 +7,6 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
     steps:
-      - cd /my-workspace
-      - ng test
       - run: node --version
 workflows:
   version: 2
