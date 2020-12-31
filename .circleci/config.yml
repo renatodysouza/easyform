@@ -10,4 +10,4 @@ jobs:
       - image: weboaks/node-karma-protractor-chrome
     steps:
       - checkout
-      - run: ls   
+      - run: cd ./workspace && npm i   
