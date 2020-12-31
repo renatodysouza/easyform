@@ -1,4 +1,4 @@
-version: 2
+
 jobs:
   dependencies:
     working_directory: ~/workspace/workspace
@@ -21,11 +21,12 @@ jobs:
     steps:
       run: 
         - ls    
-    
+version: 2.1
 orbs:
   node: circleci/node@4.1.0
 
 workflows:
+  version: 2
   test_my_app:
     jobs:
       - dependencies
