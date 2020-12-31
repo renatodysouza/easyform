@@ -1,14 +1,11 @@
 
-
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
+<h1 align="center">Angular Easy Form</h1>
 
 <p align="center">
   <a href="https://circleci.com/gh/angular/workflows/angular/tree/master">
     <img src="https://img.shields.io/circleci/build/github/renatodysouza/easyform/master.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
   </a>&nbsp;
 </p>
-
-# Angular-Easy-Forms
 
 *warning - this version is release, not use it in production
 
