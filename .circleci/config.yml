@@ -7,7 +7,7 @@ jobs:
     steps:
       - node/install-npm
       - run:
-          command: ng test
+          command: mpm run test
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
