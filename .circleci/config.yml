@@ -20,7 +20,6 @@ jobs:
       name: node/default
       tag: '13.14'
     steps:
-      - checkout
       - node/install-npm
       - node/install-packages:
           app-dir: ../workspace/workspace
