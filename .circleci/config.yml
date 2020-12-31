@@ -8,7 +8,7 @@ workflows:
 jobs:
   dependencies:
     docker:
-      - image: weboaks/node-karma-protractor-chrome
+      - image: weboaks/node-karma-protractor-chromedd6
     steps:
       - checkout
       - run: cd ./workspace && npm i 
