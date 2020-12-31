@@ -1,6 +1,6 @@
 jobs:
   test:
-    working_directory: ~/workspace   
+    working_directory: ~/workspace/workspace   
     executor:
       name: node/default
       tag: '13.14'
