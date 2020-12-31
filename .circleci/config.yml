@@ -26,7 +26,6 @@ orbs:
   node: circleci/node@4.1.0
 
 workflows:
-  version: 2
   test_my_app:
     jobs:
       - dependencies
