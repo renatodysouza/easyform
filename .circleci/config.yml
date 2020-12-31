@@ -11,8 +11,6 @@ jobs:
           app-dir: ../workspace/workspace
           cache-path: node_modules
           override-ci-command: npm i
-      - run:
-          command: cd  ../workspace/workspace && npm install
       - store_artifacts:
           path: /node_modules      
   test:
@@ -22,7 +20,7 @@ jobs:
       tag: '13.14'
     steps:
       - run:
-          command: cd  ../workspace/workspace && ls
+          command: cd ls
     
 orbs:
   node: circleci/node@4.1.0
