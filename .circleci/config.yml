@@ -19,7 +19,6 @@ jobs:
       name: node/default
       tag: '13.14'
     steps:
-      - checkout
       run: 
         - ls    
     
