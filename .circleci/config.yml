@@ -1,6 +1,5 @@
 jobs:
   test:
-    working_directory: ~/workspace/workspace
     docker:
       - image: circleci/node:6-browsers
         environment:
@@ -8,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: cd  ../workspace/workspace && npm install && npm run test
+          command: cd  ../workspace/workspace && ls
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
