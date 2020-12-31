@@ -13,7 +13,6 @@ jobs:
           override-ci-command: npm install
    
   test:
-    working_directory: ~/workspace/workspace
     executor:
       name: node/default
     steps:
