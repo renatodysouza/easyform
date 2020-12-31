@@ -5,6 +5,9 @@
   <a href="https://circleci.com/gh/renatodysouza/easyform/workflows/dependencies">
     <img src="https://img.shields.io/circleci/build/github/renatodysouza/easyform/master.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
   </a>&nbsp;
+    <a href="https://circleci.com/gh/renatodysouza/easyform/workflows/dependencies">
+    <img src="https://img.shields.io/circleci/build/github/renatodysouza/easyform/master.svg?logo=circleci&logoColor=fff&label=Test" alt="CI test" />
+  </a>&nbsp;
 </p>
 
 *warning - this version is release, not use it in production
