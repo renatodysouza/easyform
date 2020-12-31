@@ -3,8 +3,8 @@
 
 <p align="center">
   <a href="https://circleci.com/gh/renatodysouza/easyform/workflows/dependencies">
-    <img src="https://github.comrenatodysouza/easyform/workflows/<WORKFLOW_FILE_PATH>/badge.svg
-    https://img.shields.io/circleci/build/github/renatodysouza/easyform/workflows/dependencies/test_my_app/master.svg?logo=circleci&logoColor=fff&label=Dependencies" alt="CI status" />
+    <img src="https://img.shields.io/https://app.circleci.com/pipelines/github/renatodysouza/easyform/jobs?master.svg?logo=circleci&logoColor=fff&label=Dependencies" 
+    alt="CI status" />
   </a>&nbsp;
 </p>
 
