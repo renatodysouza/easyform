@@ -1,0 +1,25 @@
+{
+  "name": "angular-easy-form",
+  "version": "1.0.2",
+  "title": "Angular easy form",
+  "description": "Create angular forms fast and easy",
+  "keywords": [
+    "angular",
+    "form",
+    "formgroup"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Renato-souza",
+    "email": "renatoserra@gmail.com"
+  },
+  "copyright": "2020 Renato Souza",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renatodysouza/easyform",
+    "homepage": "https://github.com/renatodysouza/easyform"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
