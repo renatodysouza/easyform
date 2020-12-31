@@ -7,7 +7,7 @@ workflows:
 jobs:
   dependencies:
     docker:
-      - image: ubuntu
+      - image: weboaks/node-karma-protractor-chrome
     steps:
       - checkout
       - run: ls   
