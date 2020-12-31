@@ -5,8 +5,9 @@ jobs:
       name: node/default
       tag: '13.14'
     steps:
+      - node/install-npm
       - run:
-          command: npm install && ng test
+          command: ng test
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
