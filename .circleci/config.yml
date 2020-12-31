@@ -4,6 +4,8 @@ jobs:
     executor:
       name: node/default
       tag: '13.14'
+      environment:
+         CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - node/install-npm
@@ -15,8 +17,6 @@ jobs:
           command: cd  ../workspace/workspace && npm install -D puppeteer && npm run test
 orbs:
   node: circleci/node@4.1.0
-  environment:
-    CHROME_BIN: /usr/bin/google-chrome
 version: 2.1
 workflows:
   test_my_app:
