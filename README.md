@@ -5,9 +5,9 @@
   <a href="https://app.circleci.com/pipelines/github/renatodysouza/easyform">
     <img src="https://img.shields.io/circleci/build/github/renatodysouza/easyform/master.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
   </a>&nbsp;
-  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/renatodysouza/easyform/blob/master/LICENSE)
-   <!--  <a href="https://circleci.com/gh/renatodysouza/easyform/workflows/dependencies">
-    <img src="https://img.shields.io/circleci/build/github/renatodysouza/easyform/master.svg?logo=circleci&logoColor=fff&label=Test" alt="CI test" /> -->
+
+  <a href="https://github.com/renatodysouza/easyform/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg"  />
   </a>&nbsp;
 </p>
 
