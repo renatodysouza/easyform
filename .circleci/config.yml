@@ -3,6 +3,7 @@ workflows:
   test_my_app:
     jobs:
       - dependencies
+      - test
    
 jobs:
   dependencies:
@@ -10,4 +11,12 @@ jobs:
       - image: weboaks/node-karma-protractor-chrome
     steps:
       - checkout
-      - run: cd ./workspace && npm i   
+      - run: cd ./workspace && npm i 
+
+jobs:
+  test:
+    docker:
+      - image: weboaks/node-karma-protractor-chrome
+    steps:
+      - checkout
+      - run: cd ./workspace && npm i && npm test
