@@ -6,7 +6,7 @@ jobs:
       tag: '13.14'
     steps:
       - run:
-          command: npm install
+          command: npm install && ng test
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
