@@ -46,25 +46,25 @@ import { AngularEasyFormModule } from  'angular-easy-form';
 
 @NgModule({
 
-declarations: [
+  declarations: [
 
-AppComponent,
+    AppComponent,
 
-],
+  ],
 
-imports: [
+  imports: [
 
-CommonModule,
+    CommonModule,
 
-BrowserModule,
+    BrowserModule,
 
-ReactiveFormsModule,
+    ReactiveFormsModule,
 
-BrowserAnimationsModule,
+    BrowserAnimationsModule,
 
-AngularEasyFormModule,
+    AngularEasyFormModule,
 
-],
+  ],
 
 providers: [],
 
@@ -77,7 +77,6 @@ export  class  AppModule { }
 
 ```
  
-
 In your component's template file "app.component.html" you have add tag lib-angular-easy-form
 
   ```html
@@ -86,9 +85,7 @@ In your component's template file "app.component.html" you have add tag lib-angu
 (eventsForm)="eventForm($event)">
 </lib-angular-easy-form>
 
-```
-
-  
+```  
 
 The configForm is passed all configuration form. You should create a method to get events of form.
 ```ts
@@ -100,8 +97,6 @@ eventForm(event: any) {
 }
 
 ```
-
-
 
 | Parameter   |  Description  |  Type  |  Example | 
 | ------------------- | ------------------- | ------------------- | ------------------- |
@@ -139,16 +134,6 @@ eventForm(event: any) {
       value: '', style: '', required: true
     });
 
-    formCreator.field().text({
-      type: 'text', alias: 'f2', label: 'Teste 2', disable: false, placeholder: 'sou',
-      value: '', style: '', required: true
-    });
-
-    formCreator.field().text({
-      type: 'text', alias: 'f3', label: 'Teste 3', disable: false, placeholder: 'eu',
-      value: '', style: '', required: true
-    });
-
     formCreator.field().select({
       type: 'select', alias: 'f4',
       setOptions: [{ id: 1, value: 'home' }, { id: 2, value: 'ball' }],
@@ -174,12 +159,6 @@ eventForm(event: any) {
     formCreator.field().checkbox({
       type: 'checkbox', alias: 'f8', label: 'teste', checked: false,
       style: 'margin-left:8px;', required: false
-    });
-
-    formCreator.field().checkbox({
-      type: 'searchInput', alias: 'f9', label: '',
-      dataOptions: [{ id: '01', value: 'cat' }, { id: 'dog', value: 'dog' }], validate: false,
-      valuePreselected: 'cat', valueData: 'id', showedData: 'value', style: ''
     });
 
     this.formEasy.populateGroup(formCreator.build());
