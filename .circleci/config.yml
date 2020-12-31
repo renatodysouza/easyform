@@ -1,9 +1,10 @@
 jobs:
   test:
     working_directory: ~/workspace/workspace
-    executor:
-      name: node/default
-      tag: '13.14'
+    docker:
+      - image: circleci/node:6-browsers
+      environment:
+        CHROME_BIN: "/usr/bin/google-chrome"
     steps:
       - checkout
       - node/install-npm
