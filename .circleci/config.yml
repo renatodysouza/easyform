@@ -4,8 +4,9 @@ jobs:
     docker:
       - image: circleci/node:6-browsers
         environment:
-            CHROME_BIN: "/usr/bin/google-chrome"
+           CHROME_BIN: "/usr/bin/google-chrome"
     steps:
+      - checkout
       - run:
           command: cd  ../workspace/workspace && npm install && npm run test
 orbs:
