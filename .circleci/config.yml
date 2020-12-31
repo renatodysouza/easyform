@@ -1,12 +1,12 @@
 jobs:
   test:
-    working_directory: ~/workspace/workspace   
     executor:
       name: node/default
       tag: '13.14'
     steps:
       - node/install-npm
       - node/install-packages:
+          app-dir: ~/workspace/workspace  
           cache-path: node_modules
           override-ci-command: npm i
       - run:
