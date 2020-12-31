@@ -13,7 +13,6 @@ jobs:
       - checkout
       - run: cd ./workspace && npm i 
 
-jobs:
   test:
     docker:
       - image: weboaks/node-karma-protractor-chrome
