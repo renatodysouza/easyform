@@ -4,7 +4,6 @@ jobs:
     working_directory: ~/workspace/workspace
     executor:
       name: node/default
-      tag: '13.14'
     steps:
       - checkout
       - node/install-npm
@@ -17,11 +16,9 @@ jobs:
     working_directory: ~/workspace/workspace
     executor:
       name: node/default
-      tag: '13.14'
     steps:
       run: 
         - ls    
-version: 2.1
 orbs:
   node: circleci/node@4.1.0
 
