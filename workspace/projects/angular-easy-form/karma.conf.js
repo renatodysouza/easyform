@@ -37,18 +37,26 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browserDisconnectTimeout : 10000,
+    browserDisconnectTolerance: 1,
+    browserNoActivityTimeout : 4*60*1000,
+    captureTimeout : 4*60*1000,
+    browsers: ['ChromeHeadless'],
     customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: [
-        '--no-sandbox',
-        '--user-data-dir=/tmp/chrome-test',
-        '--disable-web-security'
-        ]
-      }
-    },
-    singleRun: false,
-    restartOnFileChange: true
+        ChromeHeadless: {
+          base: 'Chrome',
+          flags: [
+            '--headless',
+            '--disable-gpu',
+            '--no-sandbox',
+            '--remote-debugging-port=9222',
+          ]
+        }
+     },
+    concurrency: Infinity,
+    singleRun: true,
+    restartOnFileChange: true,
+    failOnEmptyTestSuite: false
   });
+
 };
