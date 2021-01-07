@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "ng build --prod && npm run public",
+    "public": "node deploy.js"
   },
   "private": true,
   "dependencies": {
