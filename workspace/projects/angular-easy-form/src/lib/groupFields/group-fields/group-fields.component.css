@@ -1,11 +1,9 @@
 .horizontal-group {
     display: flex;
-    flex-direction: column;
     display: flex;
     flex-direction: row;
 }
 
 .input-dyn {
     margin-left: 1%;
-    width: 100%;
 }

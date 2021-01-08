@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "deploy": "ng build --prod",
-    "public": "node deploy.js"
+    "publish": "cd ./dist/angular-easy-form &&  npm publish"
   },
   "private": true,
   "dependencies": {

@@ -4,7 +4,7 @@
  configInput.type !== 'checkbox' && 
  configInput.type !== 'searchInput'"
  
- [style]="configInput.style"  [formGroup]="inputForm">
+ [style]="configInput?.style"  [formGroup]="inputForm">
   <mat-label>{{configInput.label}}</mat-label>
   <input [type]="configInput.type"
    matInput [placeholder]='configInput?.placeholder || "" '

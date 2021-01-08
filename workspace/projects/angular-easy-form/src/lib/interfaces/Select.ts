@@ -1,11 +1,6 @@
-export interface SelectTags {
-    type: string;
-    alias: string;
+import { FieldsAllTags } from "./FieldsAll";
+
+export interface SelectTags extends FieldsAllTags {
     setOptions: Array<any>;
-    label?: string;
-    disable?: boolean;
     startEmpty: boolean;
-    value?: any;
-    style?: string;
-    required?: boolean;
 }

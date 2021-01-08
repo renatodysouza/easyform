@@ -1,15 +1,9 @@
+import { FieldsAllTags } from "./FieldsAll";
 
-export interface ConfigInput {
-  type: string;
-  alias: string;
-  label?: string;
-  disable?: boolean;
+export interface ConfigInput extends FieldsAllTags {
   setOptions?: Array<any>;
   placeholder?: string;
   startEmpty?: boolean;
-  value?: any;
-  style?: string;
-  required?: boolean;
   checked?: boolean;
   dataOptions?: any;
   valuePreselected?: any;
@@ -19,5 +13,4 @@ export interface ConfigInput {
   miniLength?: number;
   maxLength?: number;
   pattern?: any;
-
 }

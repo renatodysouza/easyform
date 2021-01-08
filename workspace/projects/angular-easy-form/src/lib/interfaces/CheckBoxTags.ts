@@ -1,12 +1,6 @@
-export interface CheckBoxTags {
-    type: string;
-    alias: string;
-    label?: string;
-    disable?: boolean;
+import { FieldsAllTags } from "./FieldsAll";
+
+export interface CheckBoxTags extends FieldsAllTags {
     checked?: boolean;
-    value?: any;
-    style?: string;
-    required?: boolean;
-    readonly?: boolean;
 }
 

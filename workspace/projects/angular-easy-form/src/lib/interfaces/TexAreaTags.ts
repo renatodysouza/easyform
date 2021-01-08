@@ -1,11 +1,5 @@
-export interface TextAreaTags {
-    type: string;
-    alias: string;
-    label?: string;
-    disable?: boolean;
+import { FieldsAllTags } from "./FieldsAll";
+
+export interface TextAreaTags extends FieldsAllTags {
     placeholder?: string;
-    value?: any;
-    style?: string;
-    required?: boolean;
-    readonly?: boolean;
 }
