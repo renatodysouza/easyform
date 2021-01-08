@@ -2,7 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AngularEasyFormComponent } from './angular-easy-form.component';
-import { ThemeConfig } from './config/themeConfig';
+import { ThemeConfig } from './config/config';
 
 class ThemConfigMock {
 

@@ -342,8 +342,8 @@
                 },] }
     ];
 
-    var ThemeConfig = /** @class */ (function () {
-        function ThemeConfig(fields) {
+    var Config = /** @class */ (function () {
+        function Config(fields) {
             this.fields = fields;
             this.fieldsBuilded = [];
             this.fieldsClass = fields;
@@ -351,7 +351,7 @@
                 style: this.styleGlobal
             };
         }
-        ThemeConfig.prototype.generateMatriz = function () {
+        Config.prototype.generateMatriz = function () {
             var _this = this;
             this.decreaseFields();
             this.matriz.map(function (numb) {
@@ -359,10 +359,10 @@
                 _this.fieldsIteration = _this.fieldsIteration.slice(numb, _this.fieldsIteration.length);
             });
         };
-        ThemeConfig.prototype.decreaseFields = function () {
+        Config.prototype.decreaseFields = function () {
             return this.fieldsIteration = __spread(this.fieldsClass.getFields());
         };
-        ThemeConfig.prototype.buildingFields = function (quantityOfFields) {
+        Config.prototype.buildingFields = function (quantityOfFields) {
             var fieldsBuild = [];
             var allFields = this.fieldsIteration;
             for (var index = 0; index < allFields.length;) {
@@ -373,22 +373,22 @@
             }
             return fieldsBuild;
         };
-        ThemeConfig.prototype.field = function () {
+        Config.prototype.field = function () {
             return this.fieldsClass;
         };
-        ThemeConfig.prototype.build = function () {
+        Config.prototype.build = function () {
             this.generateMatriz();
             return this.fieldsBuilded || this.fieldsClass.getFields();
         };
-        return ThemeConfig;
+        return Config;
     }());
-    ThemeConfig.ɵprov = i0.ɵɵdefineInjectable({ factory: function ThemeConfig_Factory() { return new ThemeConfig(i0.ɵɵinject(Fields)); }, token: ThemeConfig, providedIn: "root" });
-    ThemeConfig.decorators = [
+    Config.ɵprov = i0.ɵɵdefineInjectable({ factory: function Config_Factory() { return new Config(i0.ɵɵinject(Fields)); }, token: Config, providedIn: "root" });
+    Config.decorators = [
         { type: i0.Injectable, args: [{
                     providedIn: 'root'
                 },] }
     ];
-    ThemeConfig.ctorParameters = function () { return [
+    Config.ctorParameters = function () { return [
         { type: Fields }
     ]; };
 
@@ -404,6 +404,7 @@
         }
         // tslint:disable-next-line: typedef
         AngularEasyFormComponent.prototype.ngOnInit = function () {
+            this.populateGroup();
         };
         AngularEasyFormComponent.prototype.formOptions = function () {
             return this.themConfig;
@@ -420,9 +421,9 @@
         AngularEasyFormComponent.prototype.agregateResult = function (event) {
             this.allFields = Object.assign(this.allFields, event);
         };
-        AngularEasyFormComponent.prototype.populateGroup = function (groupFields) {
-            this.masterConfig.fields = groupFields;
-            this.showGroups = groupFields ? true : false;
+        AngularEasyFormComponent.prototype.populateGroup = function () {
+            this.masterConfig.fields = this.setFieldsConfig;
+            this.showGroups = this.setFieldsConfig ? true : false;
         };
         return AngularEasyFormComponent;
     }());
@@ -434,11 +435,13 @@
                 },] }
     ];
     AngularEasyFormComponent.ctorParameters = function () { return [
-        { type: ThemeConfig }
+        { type: Config }
     ]; };
     AngularEasyFormComponent.propDecorators = {
-        eventsForm: [{ type: i0.Output }]
+        eventsForm: [{ type: i0.Output }],
+        setFieldsConfig: [{ type: i0.Input }]
     };
+    var options = new AngularEasyFormComponent(new Config(new Fields()));
 
     var InputComponent = /** @class */ (function () {
         function InputComponent(fb) {
@@ -660,7 +663,8 @@
 
     exports.AngularEasyFormComponent = AngularEasyFormComponent;
     exports.AngularEasyFormModule = AngularEasyFormModule;
-    exports.ɵa = ThemeConfig;
+    exports.options = options;
+    exports.ɵa = Config;
     exports.ɵb = Fields;
     exports.ɵc = InputComponent;
     exports.ɵd = GroupFieldsComponent;

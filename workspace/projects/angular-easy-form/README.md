@@ -120,52 +120,23 @@ eventForm(event: any) {
   * Type and alias are mandatory
 
  ```typescript
+    import { options } from 'angular-easy-form';
+    
+     export class YourComponent implements OnInit, AfterViewInit {
+        ngOnInit() {
+          const formCreator = options.formOptions();
+          formCreator.matriz = [2];
 
-   // In your component add AfterViewInit
-      export class YourComponent implements OnInit, AfterViewInit {
-      @ViewChild('formEasy', { static: false }) formEasy: any;
-
-        ngAfterViewInit() {
-    const formCreator = this.formEasy.formOptions();
-    formCreator.matriz = [3, 3, 3];
-
-    formCreator.field().text({
-      type: 'text', alias: 'f1', label: 'Teste 1', disable: false, placeholder: 'oi',
-      value: '', style: '', required: true
-    });
-
-    formCreator.field().select({
-      type: 'select', alias: 'f4',
-      setOptions: [{ id: 1, value: 'home' }, { id: 2, value: 'ball' }],
-      label: 'Teste 4', disable: false, startEmpty: true,
-      value: '', style: '', required: true
-    });
-
-    formCreator.field().number({
-      type: 'number', alias: 'f5', label: 'teste', disable: false, placeholder: '',
-      value: '', style: '', required: false
-    });
-
-    formCreator.field().date({
-      type: 'date', alias: 'f6', label: 'teste', disable: false, placeholder: '',
-      value: '', style: '', required: false
-    });
-
-    formCreator.field().textArea({
-      type: 'textarea', alias: 'f7', label: 'teste3', disable: false, placeholder: '',
-      value: '', style: '', required: false
-    });
-
-    formCreator.field().checkbox({
-      type: 'checkbox', alias: 'f8', label: 'teste', checked: false,
-      style: 'margin-left:8px;', required: false
-    });
-
-    this.formEasy.populateGroup(formCreator.build());
-    this.cdRef.detectChanges();
-  }
-  
-
+          formCreator.field().text({
+            type: 'text', alias: 'f1', label: 'Teste 1', disable: false, placeholder: 'oi',
+            value: '', style: '', required: true
+          });
+          formCreator.field().text({
+            type: 'text', alias: 'f2', label: 'Teste 2', disable: false, placeholder: 'oi',
+            value: '', style: '', required: true
+          });
+          this.setConfig = formCreator.build();
+      }
 ```
 
 ## The form automatically rendering

@@ -45,7 +45,7 @@ Fields.decorators = [
             },] }
 ];
 
-class ThemeConfig {
+class Config {
     constructor(fields) {
         this.fields = fields;
         this.fieldsBuilded = [];
@@ -83,13 +83,13 @@ class ThemeConfig {
         return this.fieldsBuilded || this.fieldsClass.getFields();
     }
 }
-ThemeConfig.ɵprov = ɵɵdefineInjectable({ factory: function ThemeConfig_Factory() { return new ThemeConfig(ɵɵinject(Fields)); }, token: ThemeConfig, providedIn: "root" });
-ThemeConfig.decorators = [
+Config.ɵprov = ɵɵdefineInjectable({ factory: function Config_Factory() { return new Config(ɵɵinject(Fields)); }, token: Config, providedIn: "root" });
+Config.decorators = [
     { type: Injectable, args: [{
                 providedIn: 'root'
             },] }
 ];
-ThemeConfig.ctorParameters = () => [
+Config.ctorParameters = () => [
     { type: Fields }
 ];
 
@@ -105,6 +105,7 @@ class AngularEasyFormComponent {
     }
     // tslint:disable-next-line: typedef
     ngOnInit() {
+        this.populateGroup();
     }
     formOptions() {
         return this.themConfig;
@@ -121,9 +122,9 @@ class AngularEasyFormComponent {
     agregateResult(event) {
         this.allFields = Object.assign(this.allFields, event);
     }
-    populateGroup(groupFields) {
-        this.masterConfig.fields = groupFields;
-        this.showGroups = groupFields ? true : false;
+    populateGroup() {
+        this.masterConfig.fields = this.setFieldsConfig;
+        this.showGroups = this.setFieldsConfig ? true : false;
     }
 }
 AngularEasyFormComponent.decorators = [
@@ -134,11 +135,13 @@ AngularEasyFormComponent.decorators = [
             },] }
 ];
 AngularEasyFormComponent.ctorParameters = () => [
-    { type: ThemeConfig }
+    { type: Config }
 ];
 AngularEasyFormComponent.propDecorators = {
-    eventsForm: [{ type: Output }]
+    eventsForm: [{ type: Output }],
+    setFieldsConfig: [{ type: Input }]
 };
+const options = new AngularEasyFormComponent(new Config(new Fields()));
 
 class InputComponent {
     constructor(fb) {
@@ -349,5 +352,5 @@ AngularEasyFormModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { AngularEasyFormComponent, AngularEasyFormModule, ThemeConfig as ɵa, Fields as ɵb, InputComponent as ɵc, GroupFieldsComponent as ɵd, InputsearchComponent as ɵe };
+export { AngularEasyFormComponent, AngularEasyFormModule, options, Config as ɵa, Fields as ɵb, InputComponent as ɵc, GroupFieldsComponent as ɵd, InputsearchComponent as ɵe };
 //# sourceMappingURL=angular-easy-form.js.map

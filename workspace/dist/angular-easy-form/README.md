@@ -27,7 +27,7 @@ Permit create forms in Angular easier and fast.
 
   
 
-`npm install angular-easy-forms --save`
+`npm install angular-easy-form`
 
   
   

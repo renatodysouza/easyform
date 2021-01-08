@@ -1,5 +1,5 @@
 import { Fields } from './fields';
-export declare class ThemeConfig {
+export declare class Config {
     fields: Fields;
     styleGlobal: any;
     config: any;

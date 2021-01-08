@@ -6,7 +6,7 @@ import { Fields } from './fields';
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeConfig {
+export class Config {
   styleGlobal: any;
   config: any;
   fieldsClass;

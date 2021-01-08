@@ -1,6 +1,7 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ThemeConfig } from './config/themeConfig';
+import { Config } from './config/config';
+import { Fields } from './config/fields';
 import { FormOptions } from './interfaces/FormOptions';
 
 
@@ -10,23 +11,25 @@ import { FormOptions } from './interfaces/FormOptions';
   styles: ['./angular-easy-form.component.css']
 })
 export class AngularEasyFormComponent implements OnInit {
-  setConfig: any;
   @Output() eventsForm = new EventEmitter();
+  @Input() setFieldsConfig: any;
+  setConfig: any;
   allFields: any = {};
   valueEvent: any = {};
   otherEvents: any = {};
   masterConfig: any = { };
   showGroups = false;
 
-  constructor(private themConfig: ThemeConfig) {
+  constructor(private themConfig: Config) {
 
   }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    this.populateGroup();
   }
 
-  formOptions(): ThemeConfig {
+  formOptions(): Config {
     return this.themConfig;
   }
 
@@ -44,9 +47,12 @@ export class AngularEasyFormComponent implements OnInit {
     this.allFields = Object.assign(this.allFields, event);
   }
 
-  populateGroup(groupFields: Array<any>) {
-    this.masterConfig.fields = groupFields;
-    this.showGroups = groupFields ? true : false;
+  populateGroup() {
+    this.masterConfig.fields = this.setFieldsConfig;
+    this.showGroups = this.setFieldsConfig ? true : false;
   }
 
 }
+
+export const options = new AngularEasyFormComponent(new Config(new Fields()));
+

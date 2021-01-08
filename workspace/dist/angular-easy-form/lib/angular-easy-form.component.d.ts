@@ -1,18 +1,20 @@
 import { EventEmitter, OnInit } from '@angular/core';
-import { ThemeConfig } from './config/themeConfig';
+import { Config } from './config/config';
 export declare class AngularEasyFormComponent implements OnInit {
     private themConfig;
-    setConfig: any;
     eventsForm: EventEmitter<any>;
+    setFieldsConfig: any;
+    setConfig: any;
     allFields: any;
     valueEvent: any;
     otherEvents: any;
     masterConfig: any;
     showGroups: boolean;
-    constructor(themConfig: ThemeConfig);
+    constructor(themConfig: Config);
     ngOnInit(): void;
-    formOptions(): ThemeConfig;
+    formOptions(): Config;
     eventGroupFields(event: any): void;
     agregateResult(event: any): void;
-    populateGroup(groupFields: Array<any>): void;
+    populateGroup(): void;
 }
+export declare const options: AngularEasyFormComponent;

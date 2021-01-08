@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "ng build --prod && npm run public",
+    "deploy": "ng build --prod",
     "public": "node deploy.js"
   },
   "private": true,
