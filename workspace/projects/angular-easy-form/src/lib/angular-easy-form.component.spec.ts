@@ -2,7 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AngularEasyFormComponent } from './angular-easy-form.component';
-import { ThemeConfig } from './config/config';
+import { Config } from './config/config';
 
 class ThemConfigMock {
 
@@ -37,7 +37,7 @@ describe('AngularEasyFormComponent', () => {
   });
 
   it('should formOptions() return themeConfigMock ', () => {
-    expect(component.formOptions()).toBeInstanceOf(ThemeConfig);
+    expect(component.formOptions()).toBeInstanceOf(Config);
   });
 
   it('should agregateResult is called when eventGroupFields is called', () => {
@@ -52,12 +52,14 @@ describe('AngularEasyFormComponent', () => {
   });
 
   it('should masterConfig.fields return same object when populateGroup is called', () => {
-    component.populateGroup([{field1: {value: 'mock', isValid: true}}]);
+    component.setFieldsConfig = [{field1: {value: 'mock', isValid: true}}];
+    component.populateGroup();
     expect(component.masterConfig.fields).toEqual([{field1: {value: 'mock', isValid: true}}]);
   });
 
   it('should showGroups equal true when populateGroup is called', () => {
-    component.populateGroup([{field1: {value: 'mock', isValid: true}}]);
+    component.setFieldsConfig = [{field1: {value: 'mock', isValid: true}}];
+    component.populateGroup();
     expect(component.showGroups).toBeTruthy();
   });
 
