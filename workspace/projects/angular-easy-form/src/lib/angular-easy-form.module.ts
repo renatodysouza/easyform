@@ -12,6 +12,14 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 import { InputsearchComponent } from './inputsearch/inputsearch.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export const createTranslateLoader = (http: HttpClient) => {
+  return new TranslateHttpLoader(http, '../src/assets/i18n/', '.json');
+};
+
 @NgModule({
   declarations: [
     AngularEasyFormComponent,
@@ -28,8 +36,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient]
+        }
+    })
   ],
   exports: [AngularEasyFormComponent]
 })

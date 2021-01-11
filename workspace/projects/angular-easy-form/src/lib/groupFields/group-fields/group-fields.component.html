@@ -1,5 +1,5 @@
 <div class="horizontal-group" *ngIf="configGroup && configGroup.length > 0">
-    <lib-input *ngFor="let field of configGroup" class="input-dyn" [style]="field?.styleHorizontal || 'width:100%;'"  [configInput]='field' (eventInput)="eventFields($event)"></lib-input>
+    <lib-input *ngFor="let field of configGroup" class="input-dyn" [applyLang]='setLang' [style]="field?.styleHorizontal || 'width:100%;'"  [configInput]='field' (eventInput)="eventFields($event)"></lib-input>
 </div>
 
 

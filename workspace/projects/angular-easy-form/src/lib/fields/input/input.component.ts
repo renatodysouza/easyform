@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfigInput } from '../../interfaces/ConfigInput';
 import * as moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'lib-input',
@@ -10,12 +11,14 @@ import * as moment from 'moment';
 })
 export class InputComponent implements OnInit {
   @Input() configInput!: ConfigInput;
-
   @Output() eventInput = new EventEmitter();
-
-  constructor(private fb: FormBuilder) {
-  }
+  @Input() applyLang: any;
   inputForm!: FormGroup;
+  
+  constructor(private fb: FormBuilder) {
+
+  }
+
 
   ngOnInit(): void {
     this.initiFb();
@@ -24,6 +27,7 @@ export class InputComponent implements OnInit {
 
   initiFb() {
     const setControlName: any = {};
+    this.setFormatDateField();
     setControlName[this.configInput.alias.toString()] = [{value: this.configInput.value || '',
      disabled: this.configInput.disable || false}];
     this.inputForm = this.fb.group(setControlName);

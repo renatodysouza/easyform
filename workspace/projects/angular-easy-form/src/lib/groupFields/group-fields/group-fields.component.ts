@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'lib-group-fields',
@@ -8,9 +9,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class GroupFieldsComponent implements OnInit {
   @Input() configGroup: any;
   @Output() eventGroupInput = new EventEmitter();
+  @Input() setLang: any;
   fieldsGroup: any = {};
 
-  constructor() { }
+  constructor(public translate: TranslateService) {
+    this.translate.addLangs(['en', 'pt']);
+    translate.setDefaultLang('pt');
+    translate.use(this.setLang || localStorage.getItem('locale') || 'pt');
+   }
 
   ngOnInit(): void {
   }

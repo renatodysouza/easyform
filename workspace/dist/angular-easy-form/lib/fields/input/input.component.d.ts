@@ -5,8 +5,9 @@ export declare class InputComponent implements OnInit {
     private fb;
     configInput: ConfigInput;
     eventInput: EventEmitter<any>;
-    constructor(fb: FormBuilder);
+    applyLang: any;
     inputForm: FormGroup;
+    constructor(fb: FormBuilder);
     ngOnInit(): void;
     initiFb(): void;
     setFormatDateField(): void;

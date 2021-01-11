@@ -27,6 +27,7 @@
       ]
     }
   },
+  "types": ["systemjs"],
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

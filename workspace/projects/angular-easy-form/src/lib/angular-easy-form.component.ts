@@ -1,9 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Output } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, SimpleChanges } from '@angular/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Config } from './config/config';
 import { Fields } from './config/fields';
-import { FormOptions } from './interfaces/FormOptions';
 
+// @dynamic
+export function HttpLoaderFactory(http: HttpClient) {
+  const transl = new TranslateHttpLoader(http, './src/assets/i18n/', '.json');
+  return transl;
+}
 
 @Component({
   selector: 'lib-angular-easy-form',
@@ -19,9 +25,14 @@ export class AngularEasyFormComponent implements OnInit {
   otherEvents: any = {};
   masterConfig: any = { };
   showGroups = false;
+  lang!:string;
 
   constructor(private themConfig: Config) {
 
+  }
+
+  setLanguage(lang: string) {
+    this.lang = lang;
   }
 
   // tslint:disable-next-line: typedef
@@ -49,6 +60,7 @@ export class AngularEasyFormComponent implements OnInit {
 
   populateGroup() {
     this.masterConfig.fields = this.setFieldsConfig;
+    this.masterConfig.lang = this.lang;
     this.showGroups = this.setFieldsConfig ? true : false;
   }
 

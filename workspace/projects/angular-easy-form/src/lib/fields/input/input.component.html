@@ -5,7 +5,7 @@
  configInput.type !== 'searchInput'"
  
  [style]="configInput?.style"  [formGroup]="inputForm">
-  <mat-label>{{configInput.label}}</mat-label>
+  <mat-label>{{configInput.label || '' | translate}}</mat-label>
   <input [type]="configInput.type"
    matInput [placeholder]='configInput?.placeholder || "" '
    [value]='configInput?.value || "" '
@@ -17,7 +17,7 @@
 </mat-form-field>
 
 <mat-form-field *ngIf="configInput.type === 'textarea'" [style]="configInput?.style"   [formGroup]="inputForm">
-  <mat-label>{{configInput.label}}</mat-label>
+  <mat-label>{{configInput.label || '' | translate}}</mat-label>
   <textarea matInput  [value]='configInput.value || "" '
     [required]= 'configInput?.required || false'
     [formControlName]='configInput?.alias || "" '
@@ -30,7 +30,7 @@
 </mat-form-field>
 
 <mat-form-field *ngIf="configInput.type === 'select'"  [style]='configInput?.style || "" '  [formGroup]="inputForm">
-  <mat-label>{{configInput.label}}</mat-label>
+  <mat-label>{{configInput.label || '' | translate}}</mat-label>
   <select matNativeControl [required]='configInput?.required || false '  [formControlName]='configInput?.alias || "" '>
     <option *ngIf='configInput.startEmpty || false' value="">   ----- </option>
     <option *ngFor="let option of configInput.setOptions" [value]="option.id"> {{option.value}}</option>
@@ -39,12 +39,12 @@
 
 <div class="check-default" [style]='configInput?.style || "" ' *ngIf="configInput.type === 'checkbox'" [formGroup]="inputForm">
   <input type="checkbox"  [checked]='configInput?.checked || false ' [formControlName]='configInput?.alias || "" '>
-  <label  class="check-label" for="scales">{{configInput.label}}</label>
+  <label  class="check-label" for="scales">{{configInput.label || '' | translate}}</label>
 </div>
 
 <div class="check-form" *ngIf="configInput.type === 'searchInput'"  [style]="configInput?.style">
   <app-inputsearch
-  [label]='configInput?.label || " " '
+  [label]='configInput?.label || " " | translate'
   [validate]='configInput.validated || false '
   [preSelected]='configInput?.valuePreselected || "" '
   [preSelectedComparer]=''

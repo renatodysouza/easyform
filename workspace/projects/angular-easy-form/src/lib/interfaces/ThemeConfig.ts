@@ -23,6 +23,8 @@ export interface FormOptions {
 }
 
 export interface ThemeConfig {
+    lang:string;
     formOptions(): FormOptions;
     populateGroup(populate: any): any;
+    setLanguage(): void;
 }

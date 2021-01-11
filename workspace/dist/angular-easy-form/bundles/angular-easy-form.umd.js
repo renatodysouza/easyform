@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('moment'), require('@angular/material/input'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@angular/cdk/text-field'), require('@angular/material/autocomplete'), require('@angular/material/select')) :
-    typeof define === 'function' && define.amd ? define('angular-easy-form', ['exports', '@angular/core', '@angular/forms', 'moment', '@angular/material/input', '@angular/common', '@angular/platform-browser', '@angular/material/form-field', '@angular/platform-browser/animations', '@angular/cdk/text-field', '@angular/material/autocomplete', '@angular/material/select'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['angular-easy-form'] = {}, global.ng.core, global.ng.forms, global.moment, global.ng.material.input, global.ng.common, global.ng.platformBrowser, global.ng.material.formField, global.ng.platformBrowser.animations, global.ng.cdk.textField, global.ng.material.autocomplete, global.ng.material.select));
-}(this, (function (exports, i0, forms, moment, input, common, platformBrowser, formField, animations, textField, autocomplete, select) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@ngx-translate/http-loader'), require('@angular/forms'), require('moment'), require('@ngx-translate/core'), require('@angular/material/input'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@angular/cdk/text-field'), require('@angular/material/autocomplete'), require('@angular/material/select'), require('@angular/common/http')) :
+    typeof define === 'function' && define.amd ? define('angular-easy-form', ['exports', '@angular/core', '@ngx-translate/http-loader', '@angular/forms', 'moment', '@ngx-translate/core', '@angular/material/input', '@angular/common', '@angular/platform-browser', '@angular/material/form-field', '@angular/platform-browser/animations', '@angular/cdk/text-field', '@angular/material/autocomplete', '@angular/material/select', '@angular/common/http'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['angular-easy-form'] = {}, global.ng.core, global.httpLoader, global.ng.forms, global.moment, global.core, global.ng.material.input, global.ng.common, global.ng.platformBrowser, global.ng.material.formField, global.ng.platformBrowser.animations, global.ng.cdk.textField, global.ng.material.autocomplete, global.ng.material.select, global.ng.common.http));
+}(this, (function (exports, i0, httpLoader, forms, moment, core, input, common, platformBrowser, formField, animations, textField, autocomplete, select, http) { 'use strict';
 
     function _interopNamespace(e) {
         if (e && e.__esModule) return e;
@@ -421,6 +421,11 @@
         { type: Fields }
     ]; };
 
+    // @dynamic
+    function HttpLoaderFactory(http) {
+        var transl = new httpLoader.TranslateHttpLoader(http, './src/assets/i18n/', '.json');
+        return transl;
+    }
     var AngularEasyFormComponent = /** @class */ (function () {
         function AngularEasyFormComponent(themConfig) {
             this.themConfig = themConfig;
@@ -431,6 +436,9 @@
             this.masterConfig = {};
             this.showGroups = false;
         }
+        AngularEasyFormComponent.prototype.setLanguage = function (lang) {
+            this.lang = lang;
+        };
         // tslint:disable-next-line: typedef
         AngularEasyFormComponent.prototype.ngOnInit = function () {
             this.populateGroup();
@@ -452,6 +460,7 @@
         };
         AngularEasyFormComponent.prototype.populateGroup = function () {
             this.masterConfig.fields = this.setFieldsConfig;
+            this.masterConfig.lang = this.lang;
             this.showGroups = this.setFieldsConfig ? true : false;
         };
         return AngularEasyFormComponent;
@@ -459,7 +468,7 @@
     AngularEasyFormComponent.decorators = [
         { type: i0.Component, args: [{
                     selector: 'lib-angular-easy-form',
-                    template: "<div *ngIf=\"showGroups\">\r\n    <lib-group-fields *ngFor=\"let horizontalFields of masterConfig.fields\"\r\n     [style]='masterConfig.style' \r\n     [configGroup]='horizontalFields'\r\n     (eventGroupInput) ='eventGroupFields($event)'\r\n     ></lib-group-fields>\r\n</div>\r\n",
+                    template: "<div *ngIf=\"showGroups\">\r\n    <lib-group-fields *ngFor=\"let horizontalFields of masterConfig.fields\"\r\n     [style]='masterConfig.style' \r\n     [configGroup]='horizontalFields'\r\n     [setLang]=' masterConfig.lang'\r\n     (eventGroupInput) ='eventGroupFields($event)'\r\n     ></lib-group-fields>\r\n</div>\r\n",
                     styles: ['./angular-easy-form.component.css']
                 },] }
     ];
@@ -483,6 +492,7 @@
         };
         InputComponent.prototype.initiFb = function () {
             var setControlName = {};
+            this.setFormatDateField();
             setControlName[this.configInput.alias.toString()] = [{ value: this.configInput.value || '',
                     disabled: this.configInput.disable || false }];
             this.inputForm = this.fb.group(setControlName);
@@ -507,7 +517,7 @@
     InputComponent.decorators = [
         { type: i0.Component, args: [{
                     selector: 'lib-input',
-                    template: "<mat-form-field \n*ngIf=\"configInput.type !== 'textarea' &&\n configInput.type !== 'select' &&\n configInput.type !== 'checkbox' && \n configInput.type !== 'searchInput'\"\n \n [style]=\"configInput?.style\"  [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label}}</mat-label>\n  <input [type]=\"configInput.type\"\n   matInput [placeholder]='configInput?.placeholder || \"\" '\n   [value]='configInput?.value || \"\" '\n   [minlength]='configInput?.miniLength || \"\" '\n   [maxlength]='configInput?.maxLength || \"\" '\n   [pattern] = 'configInput?.pattern || \"\" '\n   [required]= 'configInput?.required || false '\n   [formControlName]='configInput?.alias || \"\" ' >\n</mat-form-field>\n\n<mat-form-field *ngIf=\"configInput.type === 'textarea'\" [style]=\"configInput?.style\"   [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label}}</mat-label>\n  <textarea matInput  [value]='configInput.value || \"\" '\n    [required]= 'configInput?.required || false'\n    [formControlName]='configInput?.alias || \"\" '\n    [pattern] = 'configInput?.pattern || \"\" '\n    [minlength]='configInput?.miniLength || \"\" '\n    [maxlength]='configInput?.maxLength || \"\" '\n    resizetofitcontent\n    cdkTextareaAutosize\n  ></textarea>\n</mat-form-field>\n\n<mat-form-field *ngIf=\"configInput.type === 'select'\"  [style]='configInput?.style || \"\" '  [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label}}</mat-label>\n  <select matNativeControl [required]='configInput?.required || false '  [formControlName]='configInput?.alias || \"\" '>\n    <option *ngIf='configInput.startEmpty || false' value=\"\">   ----- </option>\n    <option *ngFor=\"let option of configInput.setOptions\" [value]=\"option.id\"> {{option.value}}</option>\n  </select>\n</mat-form-field>\n\n<div class=\"check-default\" [style]='configInput?.style || \"\" ' *ngIf=\"configInput.type === 'checkbox'\" [formGroup]=\"inputForm\">\n  <input type=\"checkbox\"  [checked]='configInput?.checked || false ' [formControlName]='configInput?.alias || \"\" '>\n  <label  class=\"check-label\" for=\"scales\">{{configInput.label}}</label>\n</div>\n\n<div class=\"check-form\" *ngIf=\"configInput.type === 'searchInput'\"  [style]=\"configInput?.style\">\n  <app-inputsearch\n  [label]='configInput?.label || \" \" '\n  [validate]='configInput.validated || false '\n  [preSelected]='configInput?.valuePreselected || \"\" '\n  [preSelectedComparer]=''\n  [allData]='configInput?.dataOptions || \"\" '\n  [itemValue]='configInput?.valueData || \"\" '\n  [itemResult]='configInput?.showedData || \"\" '\n  (sendValue)=\"eventValue($event)\">\n </app-inputsearch>\n</div>\n\n\n",
+                    template: "<mat-form-field \n*ngIf=\"configInput.type !== 'textarea' &&\n configInput.type !== 'select' &&\n configInput.type !== 'checkbox' && \n configInput.type !== 'searchInput'\"\n \n [style]=\"configInput?.style\"  [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label || '' | translate}}</mat-label>\n  <input [type]=\"configInput.type\"\n   matInput [placeholder]='configInput?.placeholder || \"\" '\n   [value]='configInput?.value || \"\" '\n   [minlength]='configInput?.miniLength || \"\" '\n   [maxlength]='configInput?.maxLength || \"\" '\n   [pattern] = 'configInput?.pattern || \"\" '\n   [required]= 'configInput?.required || false '\n   [formControlName]='configInput?.alias || \"\" ' >\n</mat-form-field>\n\n<mat-form-field *ngIf=\"configInput.type === 'textarea'\" [style]=\"configInput?.style\"   [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label || '' | translate}}</mat-label>\n  <textarea matInput  [value]='configInput.value || \"\" '\n    [required]= 'configInput?.required || false'\n    [formControlName]='configInput?.alias || \"\" '\n    [pattern] = 'configInput?.pattern || \"\" '\n    [minlength]='configInput?.miniLength || \"\" '\n    [maxlength]='configInput?.maxLength || \"\" '\n    resizetofitcontent\n    cdkTextareaAutosize\n  ></textarea>\n</mat-form-field>\n\n<mat-form-field *ngIf=\"configInput.type === 'select'\"  [style]='configInput?.style || \"\" '  [formGroup]=\"inputForm\">\n  <mat-label>{{configInput.label || '' | translate}}</mat-label>\n  <select matNativeControl [required]='configInput?.required || false '  [formControlName]='configInput?.alias || \"\" '>\n    <option *ngIf='configInput.startEmpty || false' value=\"\">   ----- </option>\n    <option *ngFor=\"let option of configInput.setOptions\" [value]=\"option.id\"> {{option.value}}</option>\n  </select>\n</mat-form-field>\n\n<div class=\"check-default\" [style]='configInput?.style || \"\" ' *ngIf=\"configInput.type === 'checkbox'\" [formGroup]=\"inputForm\">\n  <input type=\"checkbox\"  [checked]='configInput?.checked || false ' [formControlName]='configInput?.alias || \"\" '>\n  <label  class=\"check-label\" for=\"scales\">{{configInput.label || '' | translate}}</label>\n</div>\n\n<div class=\"check-form\" *ngIf=\"configInput.type === 'searchInput'\"  [style]=\"configInput?.style\">\n  <app-inputsearch\n  [label]='configInput?.label || \" \" | translate'\n  [validate]='configInput.validated || false '\n  [preSelected]='configInput?.valuePreselected || \"\" '\n  [preSelectedComparer]=''\n  [allData]='configInput?.dataOptions || \"\" '\n  [itemValue]='configInput?.valueData || \"\" '\n  [itemResult]='configInput?.showedData || \"\" '\n  (sendValue)=\"eventValue($event)\">\n </app-inputsearch>\n</div>\n\n\n",
                     styles: [".check-default{align-items:baseline;display:flex;margin:18px 0 0}.check-label{margin-left:4%}.mat-form-field,.mat-form-field-infix{width:100%}"]
                 },] }
     ];
@@ -516,13 +526,18 @@
     ]; };
     InputComponent.propDecorators = {
         configInput: [{ type: i0.Input }],
-        eventInput: [{ type: i0.Output }]
+        eventInput: [{ type: i0.Output }],
+        applyLang: [{ type: i0.Input }]
     };
 
     var GroupFieldsComponent = /** @class */ (function () {
-        function GroupFieldsComponent() {
+        function GroupFieldsComponent(translate) {
+            this.translate = translate;
             this.eventGroupInput = new i0.EventEmitter();
             this.fieldsGroup = {};
+            this.translate.addLangs(['en', 'pt']);
+            translate.setDefaultLang('pt');
+            translate.use(this.setLang || localStorage.getItem('locale') || 'pt');
         }
         GroupFieldsComponent.prototype.ngOnInit = function () {
         };
@@ -541,14 +556,17 @@
     GroupFieldsComponent.decorators = [
         { type: i0.Component, args: [{
                     selector: 'lib-group-fields',
-                    template: "<div class=\"horizontal-group\" *ngIf=\"configGroup && configGroup.length > 0\">\n    <lib-input *ngFor=\"let field of configGroup\" class=\"input-dyn\" [style]=\"field?.styleHorizontal || 'width:100%;'\"  [configInput]='field' (eventInput)=\"eventFields($event)\"></lib-input>\n</div>\n\n\n",
+                    template: "<div class=\"horizontal-group\" *ngIf=\"configGroup && configGroup.length > 0\">\n    <lib-input *ngFor=\"let field of configGroup\" class=\"input-dyn\" [applyLang]='setLang' [style]=\"field?.styleHorizontal || 'width:100%;'\"  [configInput]='field' (eventInput)=\"eventFields($event)\"></lib-input>\n</div>\n\n\n",
                     styles: [".horizontal-group{display:flex;flex-direction:row}.input-dyn{margin-left:1%}"]
                 },] }
     ];
-    GroupFieldsComponent.ctorParameters = function () { return []; };
+    GroupFieldsComponent.ctorParameters = function () { return [
+        { type: core.TranslateService }
+    ]; };
     GroupFieldsComponent.propDecorators = {
         configGroup: [{ type: i0.Input }],
-        eventGroupInput: [{ type: i0.Output }]
+        eventGroupInput: [{ type: i0.Output }],
+        setLang: [{ type: i0.Input }]
     };
 
     var InputsearchComponent = /** @class */ (function () {
@@ -658,6 +676,9 @@
         readOnly: [{ type: i0.Input }]
     };
 
+    var createTranslateLoader = function (http) {
+        return new httpLoader.TranslateHttpLoader(http, '../src/assets/i18n/', '.json');
+    };
     var AngularEasyFormModule = /** @class */ (function () {
         function AngularEasyFormModule() {
         }
@@ -681,7 +702,14 @@
                         formField.MatFormFieldModule,
                         autocomplete.MatAutocompleteModule,
                         select.MatSelectModule,
-                        formField.MatFormFieldModule
+                        formField.MatFormFieldModule,
+                        core.TranslateModule.forRoot({
+                            loader: {
+                                provide: core.TranslateLoader,
+                                useFactory: createTranslateLoader,
+                                deps: [http.HttpClient]
+                            }
+                        })
                     ],
                     exports: [AngularEasyFormComponent]
                 },] }
@@ -697,6 +725,8 @@
 
     exports.AngularEasyFormComponent = AngularEasyFormComponent;
     exports.AngularEasyFormModule = AngularEasyFormModule;
+    exports.HttpLoaderFactory = HttpLoaderFactory;
+    exports.createTranslateLoader = createTranslateLoader;
     exports.options = options;
     exports.ɵa = Config;
     exports.ɵb = Fields;

@@ -20,6 +20,8 @@ export interface FormOptions {
     build(): any;
 }
 export interface ThemeConfig {
+    lang: string;
     formOptions(): FormOptions;
     populateGroup(populate: any): any;
+    setLanguage(): void;
 }
