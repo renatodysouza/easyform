@@ -1,5 +1,6 @@
 import { ɵɵdefineInjectable, Injectable, ɵɵinject, EventEmitter, Component, Output, Input, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import * as moment from 'moment';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,24 +15,31 @@ class Fields {
         this.allFields = [];
     }
     text(settings) {
+        settings.type = 'text';
         this.allFields.push(settings);
     }
     number(settings) {
+        settings.type = 'number';
         this.allFields.push(settings);
     }
     textArea(settings) {
+        settings.type = 'textArea';
         this.allFields.push(settings);
     }
     date(settings) {
+        settings.type = 'date';
         this.allFields.push(settings);
     }
     select(settings) {
+        settings.type = 'select';
         this.allFields.push(settings);
     }
     checkbox(settings) {
+        settings.type = 'checkbox';
         this.allFields.push(settings);
     }
     searchInput(settings) {
+        settings.type = 'searchInput';
         this.allFields.push(settings);
     }
     getFields() {
@@ -158,6 +166,11 @@ class InputComponent {
                 disabled: this.configInput.disable || false }];
         this.inputForm = this.fb.group(setControlName);
         this.eventInput.emit(this.inputForm);
+    }
+    setFormatDateField() {
+        if (this.configInput.type === 'date') {
+            this.configInput.value = moment(this.configInput.value).format(this.configInput.format || 'YYYY-MM-DD');
+        }
     }
     getFormChanges() {
         this.inputForm.valueChanges.subscribe(() => {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfigInput } from '../../interfaces/ConfigInput';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'lib-input',
@@ -28,6 +28,13 @@ export class InputComponent implements OnInit {
      disabled: this.configInput.disable || false}];
     this.inputForm = this.fb.group(setControlName);
     this.eventInput.emit(this.inputForm);
+  }
+
+  setFormatDateField() {
+    if (this.configInput.type === 'date') {
+      this.configInput.value = moment(this.configInput.value).format(this.configInput.format || 'YYYY-MM-DD');
+    }
+
   }
 
   getFormChanges() {

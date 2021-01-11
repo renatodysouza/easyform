@@ -1,14 +1,9 @@
-export interface DateTags {
-    type: string;
-    alias: string;
-    label?: string;
-    disable?: boolean;
+import { FieldsAllTags } from "./FieldsAll";
+
+export interface DateTags extends FieldsAllTags {
     placeholder?: string;
-    value?: any;
-    style?: string;
-    required?: boolean;
-    readonly?: boolean;
     max?: number;
     min?: number;
     step?: number;
+    format?: string;
 }

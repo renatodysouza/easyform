@@ -12,4 +12,5 @@ export interface ConfigInput extends FieldsAllTags {
     miniLength?: number;
     maxLength?: number;
     pattern?: any;
+    format?: string;
 }

@@ -1,5 +1,5 @@
 export interface FieldsAllTags {
-    type: string;
+    type?: string;
     alias: string;
     label?: string;
     disable?: boolean;

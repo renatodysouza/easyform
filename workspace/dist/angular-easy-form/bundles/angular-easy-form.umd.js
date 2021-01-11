@@ -1,8 +1,30 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('@angular/material/input'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@angular/cdk/text-field'), require('@angular/material/autocomplete'), require('@angular/material/select')) :
-    typeof define === 'function' && define.amd ? define('angular-easy-form', ['exports', '@angular/core', '@angular/forms', '@angular/material/input', '@angular/common', '@angular/platform-browser', '@angular/material/form-field', '@angular/platform-browser/animations', '@angular/cdk/text-field', '@angular/material/autocomplete', '@angular/material/select'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['angular-easy-form'] = {}, global.ng.core, global.ng.forms, global.ng.material.input, global.ng.common, global.ng.platformBrowser, global.ng.material.formField, global.ng.platformBrowser.animations, global.ng.cdk.textField, global.ng.material.autocomplete, global.ng.material.select));
-}(this, (function (exports, i0, forms, input, common, platformBrowser, formField, animations, textField, autocomplete, select) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('moment'), require('@angular/material/input'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@angular/cdk/text-field'), require('@angular/material/autocomplete'), require('@angular/material/select')) :
+    typeof define === 'function' && define.amd ? define('angular-easy-form', ['exports', '@angular/core', '@angular/forms', 'moment', '@angular/material/input', '@angular/common', '@angular/platform-browser', '@angular/material/form-field', '@angular/platform-browser/animations', '@angular/cdk/text-field', '@angular/material/autocomplete', '@angular/material/select'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['angular-easy-form'] = {}, global.ng.core, global.ng.forms, global.moment, global.ng.material.input, global.ng.common, global.ng.platformBrowser, global.ng.material.formField, global.ng.platformBrowser.animations, global.ng.cdk.textField, global.ng.material.autocomplete, global.ng.material.select));
+}(this, (function (exports, i0, forms, moment, input, common, platformBrowser, formField, animations, textField, autocomplete, select) { 'use strict';
+
+    function _interopNamespace(e) {
+        if (e && e.__esModule) return e;
+        var n = Object.create(null);
+        if (e) {
+            Object.keys(e).forEach(function (k) {
+                if (k !== 'default') {
+                    var d = Object.getOwnPropertyDescriptor(e, k);
+                    Object.defineProperty(n, k, d.get ? d : {
+                        enumerable: true,
+                        get: function () {
+                            return e[k];
+                        }
+                    });
+                }
+            });
+        }
+        n['default'] = e;
+        return Object.freeze(n);
+    }
+
+    var moment__namespace = /*#__PURE__*/_interopNamespace(moment);
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -310,24 +332,31 @@
             this.allFields = [];
         }
         Fields.prototype.text = function (settings) {
+            settings.type = 'text';
             this.allFields.push(settings);
         };
         Fields.prototype.number = function (settings) {
+            settings.type = 'number';
             this.allFields.push(settings);
         };
         Fields.prototype.textArea = function (settings) {
+            settings.type = 'textArea';
             this.allFields.push(settings);
         };
         Fields.prototype.date = function (settings) {
+            settings.type = 'date';
             this.allFields.push(settings);
         };
         Fields.prototype.select = function (settings) {
+            settings.type = 'select';
             this.allFields.push(settings);
         };
         Fields.prototype.checkbox = function (settings) {
+            settings.type = 'checkbox';
             this.allFields.push(settings);
         };
         Fields.prototype.searchInput = function (settings) {
+            settings.type = 'searchInput';
             this.allFields.push(settings);
         };
         Fields.prototype.getFields = function () {
@@ -458,6 +487,11 @@
                     disabled: this.configInput.disable || false }];
             this.inputForm = this.fb.group(setControlName);
             this.eventInput.emit(this.inputForm);
+        };
+        InputComponent.prototype.setFormatDateField = function () {
+            if (this.configInput.type === 'date') {
+                this.configInput.value = moment__namespace(this.configInput.value).format(this.configInput.format || 'YYYY-MM-DD');
+            }
         };
         InputComponent.prototype.getFormChanges = function () {
             var _this = this;

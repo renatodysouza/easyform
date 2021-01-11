@@ -9,6 +9,7 @@ export declare class InputComponent implements OnInit {
     inputForm: FormGroup;
     ngOnInit(): void;
     initiFb(): void;
+    setFormatDateField(): void;
     getFormChanges(): void;
     eventValue(event: any): void;
 }
